@@ -10,4 +10,4 @@ twine==1.10.0
 requests
 paramiko
 python-dotenv
-coverage
+
