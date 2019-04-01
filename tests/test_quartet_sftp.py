@@ -21,7 +21,7 @@ class TestQuartet_sftp(unittest.TestCase):
         ssh_client = SSHClient()
         ssh_client.set_missing_host_key_policy(AutoAddPolicy())
         ssh_client.connect(
-            hostname='localhost', username='foo', password='pass', port=22)
+            hostname='testsftphost', username='foo', password='pass', port=22)
         sftp_client = ssh_client.open_sftp()
         path = self.get_test_file_path()
         sftp_client.put(path, '/upload/epcis.xml')
