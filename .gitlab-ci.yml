@@ -2,15 +2,38 @@ stages:
     - test-python
     - build-docs
 
-python_unit_tests:
-  image: themattrix/tox
+services:
+  - name: mendhak/http-https-echo:latest
+    alias: testhost
+  - name: atmoz/sftp
+    alias: testsftphost
+    command: ["foo:pass:1001::upload"]
+
+python3_5_unit_test:
+  image: seriallab/python3.5dev
   stage: test-python
   script:
   - export PYTHONPATH=$PYTHONPATH:$CI_PROJECT_DIR
-  - pip install --upgrade pip
   - pip install -r requirements_dev.txt
-  - pip install -U tox
-  - tox
+  - coverage run setup.py test
+  - coverage report -m
+  - coverage html
+  artifacts:
+    paths:
+      - htmlcov/
+
+python3_6_unit_test:
+  image: seriallab/python3.6dev
+  stage: test-python
+  script:
+  - export PYTHONPATH=$PYTHONPATH:$CI_PROJECT_DIR
+  - pip install -r requirements_dev.txt
+  - coverage run setup.py test
+  - coverage report -m
+  - coverage html
+  artifacts:
+    paths:
+      - htmlcov/
 
 pages:
   image: seriallab/python3.6dev
