@@ -31,7 +31,7 @@ class TestQuartet_sftp(unittest.TestCase):
 
     def test_sftp_client(self):
         test_client = client.Client(
-            'testhost','/upload',
+            'testsftphost','/upload',
             'http://testhost/capture/quartet-capture/?rule=EPCIS',
             #'http://testhost:8000',
             sftp_password='pass',
