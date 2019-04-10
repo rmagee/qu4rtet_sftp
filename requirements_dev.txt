@@ -41,7 +41,6 @@ quartet-capture==2.2.10
 quartet-epcis==1.4.5
 quartet-masterdata==1.1.8
 quartet-output==2.0.2
-quartet-sftp==0.1.0
 recommonmark==0.5.0
 requests==2.21.0
 requests-toolbelt==0.9.1

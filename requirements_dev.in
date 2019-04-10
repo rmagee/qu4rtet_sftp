@@ -41,7 +41,6 @@ quartet-capture
 quartet-epcis
 quartet-masterdata
 quartet-output
-quartet-sftp
 recommonmark
 requests
 requests-toolbelt
