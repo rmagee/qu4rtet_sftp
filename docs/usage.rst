@@ -115,3 +115,14 @@ To edit crontab issue the following command:
 .. code-block:: text
 
     crontab -e
+
+Log Monitoring
+--------------
+
+If you set up `postfix` you can monitor the logs of your cron
+job by tailing the root log as below:
+
+.. code-block:: text
+
+    sudo tail -f /var/mail/root
+
