@@ -74,6 +74,7 @@ class Client:
         path you can specify a different one on each call.
         :return: None.
         """
+        print('running quartet sftp client')
         sshc = SSHClient()
         sshc.set_missing_host_key_policy(AutoAddPolicy())
         if self.use_keys:
@@ -87,6 +88,7 @@ class Client:
         sftp_client = sshc.open_sftp()
         sftp_client.chdir(sftp_path or self.sftp_path)
         files = sftp_client.listdir()
+        print('found %s files' % len(files))
         for file in files:
             self._handle_file(file, sftp_path, sftp_client)
 

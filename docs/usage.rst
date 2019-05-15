@@ -102,13 +102,13 @@ Check every one minute:
 
 .. code-block:: text
 
-    */1 * * * * /home/ubuntu/.virtualenvs/qu4rtet/bin/python /home/ubuntu/quartet_sftp/quartet_sftp/client.py
+    */1 * * * * /home/ubuntu/.virtualenvs/qu4rtet/bin/python /home/ubuntu/qu4rtet_sftp/quartet_sftp/client.py
 
 Check every day at 1 am:
 
 .. code-block:: text
 
-    0 1 * * * /home/ubuntu/.virtualenvs/qu4rtet/bin/python /home/ubuntu/quartet_sftp/quartet_sftp/client.py
+    0 1 * * * /home/ubuntu/.virtualenvs/qu4rtet/bin/python /home/ubuntu/qu4rtet_sftp/quartet_sftp/client.py
 
 To edit crontab issue the following command:
 
