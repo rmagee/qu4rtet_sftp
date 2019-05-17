@@ -90,7 +90,9 @@ class Client:
         files = sftp_client.listdir()
         print('found %s files' % len(files))
         for file in files:
-            self._handle_file(file, sftp_path, sftp_client)
+            file_name = os.path.basename(file)
+            if not file_name.startswith('.'):
+                self._handle_file(file, sftp_path, sftp_client)
 
     def _handle_file(self, file: str, path: str, sftp_client: SFTPClient):
         """
