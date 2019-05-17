@@ -120,6 +120,7 @@ class Client:
             with open('/tmp/%s' % file, 'w') as f:
                 f.write(data.decode('utf-8'))
             try:
+                filehandle.close()
                 sftp_client.remove(file)
             except OSError:
                 sftp_client.chmod(file, 0o776)
