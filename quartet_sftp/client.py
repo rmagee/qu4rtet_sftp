@@ -91,8 +91,11 @@ class Client:
         print('found %s files' % len(files))
         for file in files:
             file_name = os.path.basename(file)
+            print('processing file %s' % file)
             if not file_name.startswith('.'):
                 self._handle_file(file, sftp_path, sftp_client)
+            else:
+                print('ignoring file...')
 
     def _handle_file(self, file: str, path: str, sftp_client: SFTPClient):
         """
