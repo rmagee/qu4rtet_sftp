@@ -101,7 +101,7 @@ class Client:
         :param sftp_client:
         :return:
         """
-        filehandle = sftp_client.file(file, 'r')
+        filehandle = sftp_client.file(file, 'rw')
         data = filehandle.read()
         headers = None
         if self.post_user and self.post_password:
@@ -118,7 +118,7 @@ class Client:
                 sftp_client.remove(file)
             except OSError:
                 sftp_client.chmod(file, 0o776)
-                sftp_client.remove(file)
+                sftp_client.rename(file, '.%s' % file)
             print('file processed and removed.  backups are stored in /tmp.')
 
 def execute():
