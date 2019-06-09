@@ -1,5 +1,3 @@
-.. highlight:: shell
-
 ============
 Installation
 ============
@@ -13,6 +11,10 @@ To install quartet_sftp, run this command in your terminal:
 .. code-block:: console
 
     $ pip install quartet_sftp
+    $ sudo apt-get install postfix #if you want logging
+    $ pip install paramiko
+    $ pip install python-dotenv
+
 
 This is the preferred method to install quartet_sftp, as it will always install the most recent stable release.
 
