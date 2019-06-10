@@ -16,6 +16,7 @@ import base64
 import requests
 import dotenv
 import os
+import sys
 from paramiko.client import SSHClient
 from paramiko.sftp_client import SFTPClient
 from paramiko import AutoAddPolicy
@@ -107,7 +108,9 @@ class Client:
         :return:
         """
         filehandle = sftp_client.file(file, 'rw')
+        print('opened file handle with path %s...reading...' % file)
         data = filehandle.read()
+        print('data has been read.')
         headers = None
         if self.post_user and self.post_password:
             auth_val = '%s:%s' % (self.post_user, self.post_password)
@@ -115,6 +118,7 @@ class Client:
                 'ascii')
             headers = {'Authorization': 'Basic %s' % auth_val,
                        'content-type': self.post_content_type}
+        print('Posting data to quartet...')
         response = requests.post(self.post_url, data=data, headers=headers)
         if response.status_code == 200 or response.status_code == 201:
             with open('/tmp/%s' % file, 'w') as f:
@@ -122,9 +126,10 @@ class Client:
             try:
                 filehandle.close()
                 sftp_client.remove(file)
-            except OSError:
+            except OSError as e:
                 sftp_client.chmod(file, 0o776)
                 sftp_client.rename(file, '.%s' % file)
+                print(sys.exc_info())
             print('file processed and removed.  backups are stored in /tmp.')
 
 def execute():
