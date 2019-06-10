@@ -120,6 +120,7 @@ class Client:
                        'content-type': self.post_content_type}
         print('Posting data to quartet...')
         response = requests.post(self.post_url, data=data, headers=headers)
+        print('Response %s' % response.raw)
         if response.status_code == 200 or response.status_code == 201:
             with open('/tmp/%s' % file, 'w') as f:
                 f.write(data.decode('utf-8'))
