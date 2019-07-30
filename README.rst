@@ -16,6 +16,7 @@ quartet_sftp
 
 
 QU4RTET SFTP Tools and Utilities.
+---------------------------------
 
 * Free software: GNU General Public License v3
 

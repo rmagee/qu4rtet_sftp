@@ -8,20 +8,17 @@ from setuptools import setup, find_packages
 with open('README.rst') as readme_file:
     readme = readme_file.read()
 
-with open('HISTORY.rst') as history_file:
-    history = history_file.read()
-
 requirements = ['paramiko']
 
-setup_requirements = ['paramiko', 'python-dotenv']
+setup_requirements = ['paramiko', 'python-dotenv', 'requests']
 
-test_requirements = ['paramiko' ]
+test_requirements = setup_requirements + ['coverage']
 
 setup(
     author="SerialLab, Corp.",
     author_email='slab@serial-lab.com',
     classifiers=[
-        'Development Status :: 2 - Pre-Alpha',
+        'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
         'Natural Language :: English',
@@ -33,7 +30,7 @@ setup(
     description="QU4RTET SFTP Tools and Utilities",
     install_requires=requirements,
     license="GNU General Public License v3",
-    long_description=readme + '\n\n' + history,
+    long_description=readme,
     include_package_data=True,
     keywords='quartet_sftp',
     name='quartet_sftp',
