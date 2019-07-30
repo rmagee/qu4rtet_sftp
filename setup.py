@@ -39,6 +39,6 @@ setup(
     test_suite='tests',
     tests_require=test_requirements,
     url='https://gitlab.com/serial-lab/quartet_sftp',
-    version='version='version='0.1.3''',
+    version='version='version='0.1.4''',
     zip_safe=False,
 )
