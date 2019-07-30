@@ -14,7 +14,7 @@ python3_5_unit_test:
   stage: test-python
   script:
   - export PYTHONPATH=$PYTHONPATH:$CI_PROJECT_DIR
-  - pip install -r requirements_dev.txt
+  - pip install -r requirements.txt
   - coverage run setup.py test
   - coverage report -m
   - coverage html
@@ -27,7 +27,7 @@ python3_6_unit_test:
   stage: test-python
   script:
   - export PYTHONPATH=$PYTHONPATH:$CI_PROJECT_DIR
-  - pip install -r requirements_dev.txt
+  - pip install -r requirements.txt
   - coverage run setup.py test
   - coverage report -m
   - coverage html

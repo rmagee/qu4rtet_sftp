@@ -2,13 +2,6 @@
 Usage
 =====
 
-Project Use
------------
-
-To use quartet_sftp in a project::
-
-    import quartet_sftp
-
 crontab Setup
 -------------
 First, clone quartet_sftp into your home directory.  If you are using a
@@ -19,6 +12,8 @@ you'd do the following
 
     cd ~
     git clone https://gitlab.com/serial-lab/qu4rtet_sftp.git
+    # install the requirements
+    pip install -r requirements.txt
 
 Now create a .env file:
 
@@ -101,6 +96,7 @@ values are different on your system adjust the examples below accordingly.)
 Check every one minute:
 
 .. code-block:: text
+
 
     */1 * * * * /home/ubuntu/.virtualenvs/qu4rtet/bin/python /home/ubuntu/qu4rtet_sftp/quartet_sftp/client.py
 
