@@ -107,6 +107,7 @@ class Client:
         :param sftp_client:
         :return:
         """
+        # if checking a local SFTP you may need to just use r permissions.
         filehandle = sftp_client.file(file, 'rw')
         print('opened file handle with path %s...reading...' % file)
         data = filehandle.read()
@@ -120,7 +121,7 @@ class Client:
                        'content-type': self.post_content_type}
         print('Posting data to quartet...')
         response = requests.post(self.post_url, data=data, headers=headers)
-        print('Response %s' % response.status_code)
+        print('Response %s' % response.text)
         if response.status_code == 200 or response.status_code == 201:
             with open('/tmp/%s' % file, 'w') as f:
                 f.write(data.decode('utf-8'))
@@ -132,6 +133,8 @@ class Client:
                 sftp_client.rename(file, '.%s' % file)
                 print(sys.exc_info())
             print('file processed and removed.  backups are stored in /tmp.')
+        else:
+            filehandle.close()
 
 def execute():
     dotenv.load_dotenv()
