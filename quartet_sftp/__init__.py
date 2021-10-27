@@ -4,4 +4,4 @@
 
 __author__ = """SerialLab, Corp."""
 __email__ = 'slab@serial-lab.com'
-__version__ = '__version__ = '__version__ = '0.1.5'''
+__version__ = '__version__ = '__version__ = '0.1.6'''
